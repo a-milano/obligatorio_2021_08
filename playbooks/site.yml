@@ -1,0 +1,23 @@
+---
+# This playbook deploys the whole application stack in this site.
+
+- name: apply common configuration to all nodes
+  hosts: centos
+  remote_user: ansible
+
+  roles:
+    - common
+
+# - name: configure and deploy the webservers and application code
+#   hosts: centos
+#   remote_user: ansible
+ 
+#   roles:
+#     - web
+
+# - name: deploy MySQL and configure the databases
+#   hosts: centos
+#   remote_user: ansible
+  
+#   roles:
+#     - db

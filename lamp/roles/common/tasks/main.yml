@@ -2,21 +2,26 @@
 # This playbook contains common plays that will be run on all nodes.
 
 - name: Install ntp
-  yum: name=ntp state=present
+  yum: 
+    name: chrony 
+    state: present
   tags: ntp
 
 - name: Install common dependencies
-  yum: name={{ item }} state=installed
-  with_items:
-   - libselinux-python
-   - libsemanage-python
-   - firewalld
-
-- name: Configure ntp file
-  template: src=ntp.conf.j2 dest=/etc/ntp.conf
-  tags: ntp
-  notify: restart ntp
+  yum: 
+    name: ['python3-libselinux', 'python3-libsemanage', 'firewalld']
+    state: installed
 
 - name: Start the ntp service
-  service: name=ntpd state=started enabled=yes
+  service: 
+    name: chronyd 
+    state: started 
+    enabled: yes
   tags: ntp
+
+- name: Configure ntp file
+  template: 
+    src: /home/sfeijo/repos/obligatorio_2021_08/lamp/roles/common/templates/ntp.conf.j2 
+    dest: /etc/ntp.conf
+  tags: ntp
+  notify: "Restart ntp"
