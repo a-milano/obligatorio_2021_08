@@ -1,12 +1,12 @@
 ---
 # This playbook deploys the whole application stack in this site.
 
-# - name: apply common configuration to all nodes
-#   hosts: all
-#   remote_user: ansible
+- name: apply common configuration to all nodes
+  hosts: all
+  remote_user: ansible
 
-#   roles:
-#     - common
+  roles:
+    - common
 
 - name: configure and deploy the webservers and application code
   hosts: all
@@ -18,11 +18,11 @@
   roles:
     - web
 
-# - name: deploy MySQL and configure the databases
-#   hosts: all
-#   remote_user: ansible
-#   vars_files:
-#   - "/home/sfeijo/repos/obligatorio_2021_08/lamp/roles/db/vars/variables.yml"
+- name: deploy MySQL and configure the databases
+  hosts: all
+  remote_user: ansible
+  vars_files:
+  - "/home/sfeijo/repos/obligatorio_2021_08/lamp/roles/db/vars/variables.yml"
   
-#   roles:
-#     - db
+  roles:
+    - db
