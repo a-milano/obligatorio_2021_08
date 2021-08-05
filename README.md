@@ -40,3 +40,20 @@ name: ['python3-libselinux', 'python3-libsemanage', 'firewalld']
   tags: ntp
   notify: "Restart ntp"
 
+## Playbook principal, se declaran las variables dentro del rol
+
+- name: deploy MySQL and configure the databases
+  hosts: all
+  remote_user: ansible
+  vars_files:
+  - "/home/sfeijo/repos/obligatorio_2021_08/lamp/roles/db/vars/variables.yml"
+
+
+  ## Condicionales 
+
+- name: Install MariaDB package
+  yum: 
+    name: ['mariadb-server','python3-mysql']
+    state: present
+  when: ansible_facts['os_family'] == "RedHat"
+

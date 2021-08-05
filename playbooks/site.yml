@@ -8,16 +8,20 @@
 #   roles:
 #     - common
 
-# - name: configure and deploy the webservers and application code
-#   hosts: all
-#   remote_user: ansible
- 
-#   roles:
-#     - web
-
-- name: deploy MySQL and configure the databases
+- name: configure and deploy the webservers and application code
   hosts: all
   remote_user: ansible
-  
+  vars_files:
+   -  /home/sfeijo/repos/obligatorio_2021_08/lamp/roles/web/vars/variables.yml
+ 
   roles:
-    - db
+    - web
+
+# - name: deploy MySQL and configure the databases
+#   hosts: all
+#   remote_user: ansible
+#   vars_files:
+#   - "/home/sfeijo/repos/obligatorio_2021_08/lamp/roles/db/vars/variables.yml"
+  
+#   roles:
+#     - db

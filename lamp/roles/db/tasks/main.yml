@@ -23,8 +23,6 @@
   template: 
     src: /home/sfeijo/repos/obligatorio_2021_08/lamp/roles/db/templates/my.cnf.j2 
     dest: /etc/my.cnf
-  vars:
-    mysql_port: 3306
   notify:
   - Restart mariadb
 
@@ -58,20 +56,20 @@
 
 - name: insert firewalld rule
   firewalld: 
-    port: "3306/tcp" 
+    port: "{{ mysql_port }}/tcp" 
     permanent: true 
     state: enabled 
     immediate: yes
 
 - name: Create Application Database
   mysql_db: 
-    name: "obligatorio" ##"{{ dbname }}" 
+    name: "{{ dbname }}" 
     state: present
 
 - name: Create Application DB User
   mysql_user: 
-    name: "ansible" ##{{ dbuser }} 
-    password: "pepegrillo" ##{{ upassword }} 
+    name: "{{ dbuser }}"
+    password: "{{ upassword }}" 
     priv: "*.*:ALL" 
     host: '%' 
     state: present

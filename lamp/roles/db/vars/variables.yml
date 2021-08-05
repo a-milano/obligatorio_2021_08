@@ -1,2 +1,5 @@
 ## Variables del rol db
-mysql_port: 5305
+mysql_port: 3306
+dbname: obligatorio
+dbuser: ansible2
+upassword: pepegrillo2
