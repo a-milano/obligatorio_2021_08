@@ -10,4 +10,4 @@
 - name: Creates the index.php file
   template: 
     src: /home/sfeijo/repos/obligatorio_2021_08/lamp/roles/web/templates/index.php.j2 
-    dest: /var/www/html/index.php
+    dest: /var/www/html/repos/index.php

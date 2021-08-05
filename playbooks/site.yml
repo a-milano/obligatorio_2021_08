@@ -13,6 +13,7 @@
   remote_user: ansible
   vars_files:
    -  /home/sfeijo/repos/obligatorio_2021_08/lamp/roles/web/vars/variables.yml
+
  
   roles:
     - web
