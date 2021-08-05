@@ -1,16 +1,35 @@
 ---
 # This playbook contains common plays that will be run on all nodes.
 
+# - name: Print facts
+#   ansible.builtin.debug:
+#     var: ansible_facts
+
+- name: Install ntp
+  apt: 
+    name: chrony 
+    state: present
+  tags: ntp
+  when: ansible_facts['os_family'] == "Debian"
+
 - name: Install ntp
   yum: 
     name: chrony 
     state: present
   tags: ntp
+  when: ansible_facts['os_family'] == "RedHat"
 
 - name: Install common dependencies
   yum: 
     name: ['python3-libselinux', 'python3-libsemanage', 'firewalld']
-    state: installed
+    state: present
+  when: ansible_facts['os_family'] == "RedHat"
+
+- name: Install common dependencies
+  apt: 
+    name: ['python3-selinux', 'python3-semanage', 'firewalld']
+    state: present
+  when: ansible_facts['os_family'] == "Debian"
 
 - name: Start the ntp service
   service: 
@@ -21,7 +40,17 @@
 
 - name: Configure ntp file
   template: 
-    src: /home/sfeijo/repos/obligatorio_2021_08/lamp/roles/common/templates/ntp.conf.j2 
-    dest: /etc/ntp.conf
+    src: /home/sfeijo/repos/obligatorio_2021_08/lamp/roles/common/templates/chrony.conf.j2 
+    dest: /etc/chrony/chrony.conf
   tags: ntp
   notify: "Restart ntp"
+  when: ansible_facts['os_family'] == "Debian"
+
+
+- name: Configure ntp file
+  template: 
+    src: /home/sfeijo/repos/obligatorio_2021_08/lamp/roles/common/templates/chrony.conf.j2 
+    dest: /etc/chrony.conf
+  tags: ntp
+  notify: "Restart ntp"
+  when: ansible_facts['os_family'] == "RedHat"
