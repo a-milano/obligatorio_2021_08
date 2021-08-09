@@ -25,7 +25,8 @@ Distribuciones RedHat:
 
 Este código se agrega al final de cada play dependiendo de la tarea que corresponda.
 Para realizar la instalación de las dependencias, en vez de usar with_items, se utilizó una lista:
-`name: ['python3-libselinux', 'python3-libsemanage', 'firewalld']`
+`name: ['python3-libselinux', 'python3-libsemanage', 'firewalld']`.
+
 Se utiliza un archivo handler para reiniciar el servicio ntp (chronyd).
 También desde este rol se llama a un archivo template el cual copia la configuración del servicio a los servidores.
 
