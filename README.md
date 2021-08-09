@@ -7,11 +7,15 @@ El objetivo de usar roles es que el código sea escalable y adaptable a los requ
 
 Para poder utilizar este playbook se debe ejecutar el archivo **site.yml**; desde este archivo se referencia a los diferentes roles:
 
-	`ansible-playbook site.yml`
+	ansible-playbook site.yml
 
 El archivo de configuración es **ansible.cfg**. En este archivo se encuentran los parámetros de configuración generales, como ser ubicación de archivo de inventario, ubicación de roles, usuario remoto y escalación de privilegios de usuario.
 
 # Cambios en roles
+Se definieron 3 roles para la totalidad de las tareas:
+1. Common
+2. DB (base de datos)
+3. Web (servidor web, configuraciones de SELinux...)
 ## Common
 En este archivo se realizó corrección de sintaxis, corrección de nombres de paquetes según la distro y se aplicaron condicionales, teniendo que hacer para este último punto el agregado del siguiente código:
 
