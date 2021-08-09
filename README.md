@@ -48,6 +48,6 @@ Al igual que en el rol common, se utiliza un template para copiar la estructura 
 
 # Autores
 
-Lucía Castiñeiras
-Sebastián Feijó
-Andrés Milano
+- Lucía Castiñeiras
+- Sebastián Feijó
+- Andrés Milano
