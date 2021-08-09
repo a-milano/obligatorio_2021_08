@@ -41,3 +41,9 @@ Este rol cuenta con tres archivos, uno principal (**main.yml**), uno de configur
 En este rol se realizó corrección de sintaxis, se corrigió nombre de paquetes.
 También se adaptó el uso de condicionales para los casos que son necesarios.
 Al igual que en el rol common, se utiliza un template para copiar la estructura del sitio a los servidores.
+
+# Autores
+
+Lucía Castiñeiras
+Sebastián Feijó
+Andrés Milano
