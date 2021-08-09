@@ -14,12 +14,12 @@ ansible.cfg, en este archivo se encuentran los parámetros de configuración gen
 Cambios realizados en los archivos:
 # Cambios en roles
 ## Common
-En este archivo se realizó corrección de sintaxis, corrección de nombres de paquetes según la distro y se aplicaron condicionales teniendo que hacer para este último punto el agregado del siguiente código:
+En este archivo se realizó corrección de sintaxis, corrección de nombres de paquetes según la distro y se aplicaron condicionales, teniendo que hacer para este último punto el agregado del siguiente código:
+Distribuciones Debian:
+`when: ansible_facts['os_family'] == "Debian"`
+Distribuciones RedHat:
+`when: ansible_facts['os_family'] == "RedHat"`
 
-`
-when: ansible_facts['os_family'] == "Debian"
-when: ansible_facts['os_family'] == "RedHat"
-`
 
 Este código se agrega al final de cada play dependiendo de la tarea que corresponda.
 Para realizar la instalación de las dependencias, en vez de usar with_items, se utilizó una lista:
