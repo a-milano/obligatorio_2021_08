@@ -1,6 +1,4 @@
-# obligatorio_2021_08
-
-## Introducción
+# Introducción
 
 El código se trata de la instalación de distintos paquetes en servidores Linux, a partir de diferentes roles configurables.
 Estos roles fueron creados con el propósito de poder ser usados tanto para distribuciones de Debian como de Redhat.
@@ -14,8 +12,8 @@ Archivo de configuración:
 ansible.cfg, en este archivo se encuentran los parámetros de configuración generales, como ser ubicación de archivo de inventario, ubicación de roles, usuario remoto y escalación de privilegios de usuario.
 
 Cambios realizados en los archivos:
-## Cambios en roles
-# Common
+# Cambios en roles
+## Common
 En este archivo se realizó corrección de sintaxis, corrección de nombres de paquetes según la distro y se aplicaron condicionales teniendo que hacer para este último punto el agregado del siguiente código:
 
 `
@@ -30,13 +28,13 @@ Se utiliza un archivo handler para reiniciar el servicio ntp (chronyd).
 También desde este rol se llama a un archivo template el cual copia la configuración del servicio a los servidores.
 
 
-# DB
+## DB
 En este rol se realizó corrección de sintaxis, se corrigió nombre de paquetes, se agregó el uso de variables las cuales se definen en el playbook principal, en el archivo site.yml.
 En este rol se adaptó el uso de condicionales para los casos que son necesarios.
 Al igual que en el rol common, se utiliza handler para reiniciar la base de datos y un template para copiar la configuración de  mysql a los servidores.
 
 
-# WEB
+## WEB
 Este rol cuenta con tres archivos, uno principal (main.yml), uno de configuración (copy_code.yml) y otro de instalación (install_httpd.yml). Desde el archivo principal se ejecutan los otros dos.
 En este rol se realizó corrección de sintaxis, se corrigió nombre de paquetes.
 También se adaptó el uso de condicionales para los casos que son necesarios.
