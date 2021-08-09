@@ -11,7 +11,6 @@ Para poder utilizar este playbook se debe ejecutar el archivo **site.yml**; desd
 
 El archivo de configuración es **ansible.cfg**. En este archivo se encuentran los parámetros de configuración generales, como ser ubicación de archivo de inventario, ubicación de roles, usuario remoto y escalación de privilegios de usuario.
 
-Cambios realizados en los archivos:
 # Cambios en roles
 ## Common
 En este archivo se realizó corrección de sintaxis, corrección de nombres de paquetes según la distro y se aplicaron condicionales, teniendo que hacer para este último punto el agregado del siguiente código:
