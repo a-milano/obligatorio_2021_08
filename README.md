@@ -1,7 +1,8 @@
 # Introducción
 
-El código se trata de la instalación de distintos paquetes en servidores Linux, a partir de diferentes roles configurables.
-Estos roles fueron creados con el propósito de poder ser usados tanto para distribuciones de Debian como de Redhat.
+Este repositorio contiene las instrucciones para la instalación de distintos paquetes del stack LAMP, utilizando la herramienta Ansible.
+
+Se utilizaron roles configurables con el propósito de poder ser usados tanto para distribuciones de Debian como de Redhat.
 El objetivo de usar roles es que el código sea escalable y adaptable a los requerimientos necesarios. En caso de necesitar implementar una nueva funcionalidad, no es necesario modificar el código; agregar un nuevo rol e invocarlo desde el playbook principal es suficiente.
 
 Para poder utilizar este playbook se debe ejecutar el archivo **site.yml**; desde este archivo se referencia a los diferentes roles:
